@@ -1,0 +1,15 @@
+# node_modules
+node_modules/
+npm-debug.log*
+yarn.lock
+pnpm-lock.yaml
+
+# Ambiente
+.env
+.env.*
+!.env.exemplo
+
+# SO/Editor
+.DS_Store
+Thumbs.db
+.vscode/
