@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Dex Delivery - Dark</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="app.js"></script>
+</head>
+
+<body class="dark">
+<header class="topo">
+  <div class="logo">
+    <span>🍔</span> <span>Dex Delivery</span>
+  </div>
+  <nav class="menu">
+    <a href="index.html" class="menu-link ativo">Início</a>
+    <a href="cadastro-cliente.html" class="menu-link">Cadastro Cliente</a>
+    <a href="cadastro-restaurante.html" class="menu-link">Cadastro Restaurante</a>
+  </nav>
+</header>
+
+<main class="conteudo">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Comida boa, no modo <span class="red">Dex Black</span>.</h1>
+      <p>Faça login como cliente para pedir dos seus restaurantes favoritos ou como restaurante para gerenciar seu cardápio e pedidos.</p>
+      <div class="hero-buttons">
+        <button class="btn red" onclick="mostrarLoginCliente()">Sou Cliente</button>
+        <button class="btn outline" onclick="mostrarLoginRest()">Sou Restaurante</button>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="https://picsum.photos/600/400?food" alt="Pratos deliciosos">
+    </div>
+  </section>
+
+  <!-- LOGIN CLIENTE -->
+  <section id="login-cliente" class="card fade oculto">
+    <h2>Login do Cliente</h2>
+
+    <label>Email</label>
+    <input id="cli-email" type="email" placeholder="cliente@mail.com">
+
+    <label>Senha</label>
+    <input id="cli-senha" type="password" placeholder="••••">
+
+    <button class="btn red cheio" onclick="loginCliente()">Entrar</button>
+
+    <p class="tip">Não tem conta?
+      <a href="cadastro-cliente.html">Cadastre-se aqui</a>
+    </p>
+  </section>
+
+  <!-- LOGIN RESTAURANTE -->
+  <section id="login-restaurante" class="card fade oculto">
+    <h2>Login do Restaurante</h2>
+
+    <label>Email</label>
+    <input id="rest-email" type="email" placeholder="restaurante@mail.com">
+
+    <label>Senha</label>
+    <input id="rest-senha" type="password" placeholder="••••">
+
+    <button class="btn red cheio" onclick="loginRestaurante()">Entrar</button>
+
+    <p class="tip">Não tem conta?
+      <a href="cadastro-restaurante.html">Cadastre-se aqui</a>
+    </p>
+  </section>
+
+  <!-- PAINEL DO CLIENTE -->
+  <section id="painel-cliente" class="fade oculto">
+    <div class="linha-topo-painel">
+      <h2 class="titulo-secao">Restaurantes</h2>
+      <button class="btn outline" onclick="carregarPedidosCliente()">Meus pedidos</button>
+    </div>
+
+    <div id="lista-restaurantes" class="grid-restaurantes"></div>
+
+    <div id="cardapio-area" class="oculto">
+      <h2 id="titulo-cardapio" class="titulo-secao"></h2>
+      <div id="lista-cardapio" class="grid-cardapio"></div>
+    </div>
+
+    <!-- pedidos do cliente -->
+    <section id="area-pedidos-cliente" class="card fade oculto">
+      <h3>Meus pedidos</h3>
+      <div id="lista-pedidos-cliente" class="lista-pedidos"></div>
+    </section>
+
+    <!-- carrinho -->
+    <div id="carrinho" class="carrinho oculto">
+      <h3>Carrinho</h3>
+      <div id="carrinho-itens"></div>
+      <div class="carrinho-total">
+        Total: <span id="carrinho-total">R$ 0,00</span>
+      </div>
+      <button class="btn red cheio" onclick="finalizarPedido()">Finalizar pedido</button>
+    </div>
+  </section>
+
+  <!-- PAINEL DO RESTAURANTE -->
+  <section id="painel-restaurante" class="fade oculto">
+    <div class="linha-topo-painel">
+      <h2 class="titulo-secao">Minha vitrine</h2>
+      <button class="btn outline" onclick="carregarPedidosRestaurante()">Pedidos recebidos</button>
+    </div>
+
+    <!-- FORMULÁRIO PARA ADICIONAR ITENS -->
+    <section class="card form-cardapio">
+      <h3>Novo item no cardápio</h3>
+
+      <label>Nome do prato</label>
+      <input id="item-nome" placeholder="Ex.: Pizza Calabresa">
+
+      <label>Preço (R$)</label>
+      <input id="item-preco" type="number" step="0.01" placeholder="39.90">
+
+      <label>Descrição</label>
+      <input id="item-desc" placeholder="Ex.: Serve 2 pessoas, massa fina">
+
+      <button class="btn red cheio" onclick="addItemCardapio()">Adicionar</button>
+    </section>
+
+    <h3 class="subtitulo">Itens cadastrados</h3>
+    <div id="meu-cardapio" class="grid-cardapio"></div>
+
+    <!-- pedidos do restaurante -->
+    <section id="area-pedidos-rest" class="card fade oculto">
+      <h3>Pedidos recebidos</h3>
+      <div id="lista-pedidos-rest" class="lista-pedidos"></div>
+    </section>
+  </section>
+
+</main>
+</body>
+</html>
